@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Early Access - Pet Safety Products</title>
+    <meta name="description" content="Sign up for early access to our innovative pet safety products!">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f7f3;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #ff6b6b;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #4d4d4d;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .pet-preference {
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        input {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        button {
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PawSky</h1>
+        <h2>Get Early Access</h2>
+        <p>Thanks for feeding our virtual <span class="pet-preference" id="pet-type">pet</span>! Sign up below to be the first to know when our innovative pet safety products launch.</p>
+        
+        <form id="early-access-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <button type="submit">Get Early Access</button>
+        </form>
+        
+        <div class="success-message" id="success-message">
+            Thank you! You're on our early access list. We'll reach out soon!
+        </div>
+    </div>
+
+    <script>
+        // Get pet preference from local storage
+        window.addEventListener('DOMContentLoaded', () => {
+            const petFed = localStorage.getItem('petFed');
+            if (petFed) {
+                document.getElementById('pet-type').innerText = petFed;
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('early-access-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // In a real implementation, you would send this data to your server
+            // For now, we'll just show a success message
+            
+            // Hide form and show success message
+            this.style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+            
+            // You would typically send the data to your server here:
+            // const formData = {
+            //     name: name,
+            //     email: email,
+            //     petPreference: localStorage.getItem('petFed')
+            // };
+            // 
+            // fetch('your-endpoint-url', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(formData)
+            // });
+        });
+    </script>
+</body>
+</html>

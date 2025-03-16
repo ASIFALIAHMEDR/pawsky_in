@@ -1,0 +1,13 @@
+/* Custom styles for center alignment and canvas styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    flex-direction: column;
+}
+
+canvas {
+    border: 1px solid #000;
+}
